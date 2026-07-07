@@ -1,3 +1,5 @@
+import Button from "../ui/Button";
+
 export default function Hero() {
   return (
     <section className="flex min-h-[80vh] flex-col items-center justify-center text-center px-6">
@@ -11,14 +13,10 @@ export default function Hero() {
         create resumes, and land their dream jobs.
       </p>
 
-      <div className="mt-10 flex gap-4">
-        <button className="rounded-lg bg-blue-600 px-6 py-3 text-white hover:bg-blue-700">
-          Get Started
-        </button>
+      <div className="mt-10 flex justify-center gap-4">
+        <Button>Get Started</Button>
 
-        <button className="rounded-lg border px-6 py-3 hover:bg-gray-100">
-          Explore
-        </button>
+        <Button variant="secondary">Explore</Button>
       </div>
     </section>
   );
