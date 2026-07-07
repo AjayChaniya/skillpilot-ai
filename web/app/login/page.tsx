@@ -1,9 +1,25 @@
+"use client";
+
+import { useAuth } from "@/hooks/useAuth";
+
 export default function LoginPage() {
+  const { login } = useAuth();
+
+  async function handleLogin() {
+    await login({
+      email: "demo@gmail.com",
+      password: "123456",
+    });
+  }
+
   return (
     <main className="flex min-h-screen items-center justify-center">
-      <h1 className="text-4xl font-bold">
-        Login Page
-      </h1>
+      <button
+        onClick={handleLogin}
+        className="rounded-lg bg-blue-600 px-6 py-3 text-white"
+      >
+        Test Login
+      </button>
     </main>
   );
 }
