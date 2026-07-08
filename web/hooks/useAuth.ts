@@ -1,8 +1,8 @@
-import { login, register } from "@/services/auth.service";
+import { authService } from "@/services/auth.service";
 
 export function useAuth() {
   return {
-    login,
-    register,
+    login: authService.login,
+    register: authService.register,
   };
 }

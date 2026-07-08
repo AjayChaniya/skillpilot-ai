@@ -1,18 +1,12 @@
-import {
-  LoginRequest,
-  RegisterRequest,
-} from "@/types/auth";
+import { api } from "@/lib/axios";
+import { LoginRequest, RegisterRequest } from "@/types/auth";
 
-export async function login(data: LoginRequest) {
-  console.log("Login Request", data);
+export const authService = {
+  login(data: LoginRequest) {
+    return api.post("/auth/login", data);
+  },
 
-  // Backend API yahan aayegi
-}
-
-export async function register(
-  data: RegisterRequest
-) {
-  console.log("Register Request", data);
-
-  // Backend API yahan aayegi
-}
+  register(data: RegisterRequest) {
+    return api.post("/auth/register", data);
+  },
+};
