@@ -1,23 +1,25 @@
-import { Button } from "@/components/ui/button";
+import Container from "@/components/ui/Container";
+import HeroBadge from "./HeroBadge";
+import HeroButtons from "./HeroButtons";
+import HeroContent from "./HeroContent";
+import HeroDashboard from "./HeroDashboard";
+import HeroStats from "./HeroStats";
 
 export default function Hero() {
   return (
-    <section className="flex min-h-[80vh] flex-col items-center justify-center text-center px-6">
-      <h1 className="text-5xl font-bold leading-tight">
-        Learn Smarter with
-        <span className="text-blue-600"> AI</span>
-      </h1>
+    <section className="py-24">
+      <Container>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <HeroBadge />
+            <HeroContent />
+            <HeroButtons />
+            <HeroStats />
+          </div>
 
-      <p className="mt-6 max-w-2xl text-lg text-gray-600">
-        SkillPilot AI helps students build skills, prepare for interviews,
-        create resumes, and land their dream jobs.
-      </p>
-
-      <div className="mt-10 flex justify-center gap-4">
-        <Button>Get Started</Button>
-
-        <Button variant="secondary">Explore</Button>
-      </div>
+          <HeroDashboard />
+        </div>
+      </Container>
     </section>
   );
 }
