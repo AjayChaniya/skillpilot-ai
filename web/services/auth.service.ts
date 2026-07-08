@@ -1,12 +1,21 @@
-import { api } from "@/lib/axios";
-import { LoginRequest, RegisterRequest } from "@/types/auth";
+import { LoginRequest } from "@/types/auth";
+import { mockTokens, mockUser } from "@/mocks/auth";
 
 export const authService = {
-  login(data: LoginRequest) {
-    return api.post("/auth/login", data);
-  },
+  async login(data: LoginRequest) {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  register(data: RegisterRequest) {
-    return api.post("/auth/register", data);
+    if (
+      data.email === "admin@skillpilot.ai" &&
+      data.password === "123456"
+    ) {
+      return {
+        accessToken: mockTokens.accessToken,
+        refreshToken: mockTokens.refreshToken,
+        user: mockUser,
+      };
+    }
+
+    throw new Error("Invalid email or password");
   },
 };
