@@ -1,8 +1,14 @@
+import { useMutation } from "@tanstack/react-query";
 import { authService } from "@/services/auth.service";
 
 export function useAuth() {
+  const loginMutation = useMutation({
+    mutationFn: authService.login,
+  });
+
   return {
-    login: authService.login,
-    register: authService.register,
+    login: loginMutation.mutate,
+    isLoading: loginMutation.isPending,
+    error: loginMutation.error,
   };
 }

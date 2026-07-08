@@ -1,25 +1,23 @@
 "use client";
 
 import { useAuth } from "@/hooks/useAuth";
+import { Button } from "@base-ui/react/button";
 
 export default function LoginPage() {
-  const { login } = useAuth();
+  const { login,isLoading } = useAuth();
 
-  async function handleLogin() {
-    await login({
-      email: "demo@gmail.com",
-      password: "123456",
-    });
-  }
+ const handleLogin = () => {
+  login({
+    email: "test@gmail.com",
+    password: "123456",
+  });
+};
 
   return (
     <main className="flex min-h-screen items-center justify-center">
-      <button
-        onClick={handleLogin}
-        className="rounded-lg bg-blue-600 px-6 py-3 text-white"
-      >
-        Test Login
-      </button>
+     <Button onClick={handleLogin}>
+  {isLoading ? "Logging in..." : "Login"}
+</Button>
     </main>
   );
 }
