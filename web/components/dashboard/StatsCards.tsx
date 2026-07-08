@@ -1,17 +1,26 @@
+import StatCard from "./StateCard";
+
+
 export default function StatsCards() {
   return (
-    <div className="mb-6 grid grid-cols-3 gap-4">
-      <div className="rounded-xl bg-blue-50 p-4">
-        Resume
-      </div>
+    <div className="grid grid-cols-3 gap-4 mb-6">
+      <StatCard
+        title="Resume"
+        value="92%"
+        color="bg-blue-50"
+      />
 
-      <div className="rounded-xl bg-green-50 p-4">
-        Interview
-      </div>
+      <StatCard
+        title="Interview"
+        value="8/10"
+        color="bg-green-50"
+      />
 
-      <div className="rounded-xl bg-purple-50 p-4">
-        Jobs
-      </div>
+      <StatCard
+        title="Jobs"
+        value="24"
+        color="bg-purple-50"
+      />
     </div>
   );
 }
